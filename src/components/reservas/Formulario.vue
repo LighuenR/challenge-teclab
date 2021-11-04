@@ -1,18 +1,23 @@
 <template>
-  <div>
+  <div class="card">
+    <h2>RESERVAR</h2>
     <form @submit.prevent>
       <input class="mx-input" style="max-width: 250px" type="text" placeholder="Nombre" v-model="content" />
       <date-picker placeholder="Fecha"  type="date" v-model="startDate" format="YYYY-MM-DD"></date-picker>
-      <vue-timepicker placeholder="Hora de entrada" :minute-interval="15" v-model="startTime" format="hh:mm"></vue-timepicker>
-      <vue-timepicker placeholder="Hora de salida" :minute-interval="15" v-model="endTime" format="hh:mm"></vue-timepicker>
+      <vue-timepicker close-on-complete placeholder="Hora de entrada" :minute-interval="15" v-model="startTime" format="hh:mm"></vue-timepicker>
+      <vue-timepicker close-on-complete placeholder="Hora de salida" :minute-interval="15" v-model="endTime" format="hh:mm"></vue-timepicker>
       <button
         @click="
           $emit('agregarReserva', {
             content: content,
+            date: startDate.toISOString().split('T')[0],
             start: startDate.toISOString().split('T')[0] + ' ' + startTime,
             end: startDate.toISOString().split('T')[0] + ' ' + endTime,
+            startTime,
+            endTime
           })
         "
+        class="mx-input"
       >
         Guardar
       </button>
@@ -39,5 +44,30 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
+.card {
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  
+}
+form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.card h2 {
+    color: #2A6A54;
+    text-align: start;
+  
+}
+.card button {
+    max-width: 100px;
+    background:#00A98F;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 </style>

@@ -25,12 +25,17 @@ export default {
           content: "Reserva 1",
           start: "2021-11-10 10:00",
           end: "2021-11-10 10:30",
+          startTime: "10:00",
+          endTime: "10:30",
+
         },
         {
           id: 2,
           content: "Reserva 2",
           start: "2021-11-9 11:00",
           end: "2021-11-9 11:45",
+          startTime: "11:00",
+          endTime: "11:45",
         },
       ],
     };
@@ -45,4 +50,6 @@ export default {
 </script>
 
 <style>
+
+
 </style>

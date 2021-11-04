@@ -1,11 +1,11 @@
 <template>
   <div>
     <!-- Card Timeline-->
-    <h1>Agenda de reservas</h1>
-    <div class="card mx-auto">
+    <h3>Agenda de reservas</h3>
+    <div>
       <div>
         <!--Timeline-->
-        <div class="mx-10" id="visualization">
+        <div id="visualization">
           <div class="menu">
             <input
               style="display: none"
@@ -20,10 +20,10 @@
             />
           </div>
             <button @click="moveLeft()" color="secondary" class="arrow-left">
-          <i class="white--text">mdi-chevron-left</i>
+          <i class="fas fa-chevron-left"></i>
         </button>
         <button @click="moveRight()" color="secondary" class="arrow-right">
-          <i class="white--text">mdi-chevron-right</i>
+          <i class="fas fa-chevron-right"></i>
         </button>
   
         </div>
@@ -160,5 +160,7 @@ export default {
 @import "../../styles/style.css";
 @import "../../styles/full-style.css";
 
-
+h3 {
+  text-align: start;
+}
 </style>

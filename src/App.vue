@@ -1,25 +1,25 @@
 <template>
   <div id="app">
-    <Formulario />
-    <Timeline />
-    <Tabla />
+    <Reservas /> 
   </div>
 </template>
 
 <script>
-import Formulario from "@/components/reservas/Formulario.vue";
-import Tabla from "@/components/reservas/Tabla.vue";
-import Timeline from "@/components/reservas/Timeline.vue";
+import Reservas from "@/components/Reservas.vue"
 
 export default {
   name: "App",
   components: {
-    Formulario,
-    Tabla,
-    Timeline,
+    Reservas
   },
+  
 };
 </script>
 
 <style>
+#app {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
 </style>

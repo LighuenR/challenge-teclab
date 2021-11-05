@@ -65,6 +65,7 @@ form {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 .card h2 {
     color: #2A6A54;

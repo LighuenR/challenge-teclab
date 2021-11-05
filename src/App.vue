@@ -17,7 +17,8 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap');
 #app {
   max-width: 1000px;
   margin: 0 auto;

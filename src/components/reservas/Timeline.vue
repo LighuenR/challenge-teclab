@@ -19,23 +19,19 @@
               value="0"
             />
           </div>
-            <button @click="moveLeft()" color="secondary" class="arrow-left">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <button @click="moveRight()" color="secondary" class="arrow-right">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-  
         </div>
-      
+        <div class="botones">
+          <button @click="moveLeft()" color="secondary" class="arrow-left">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button @click="moveRight()" color="secondary" class="arrow-right">
+            <i class="fas fa-chevron-right"></i>
+          </button>
         </div>
+      </div>
     </div>
- </div>
-        <!-- End Timeline -->
-     
-   
-   
- 
+  </div>
+  <!-- End Timeline -->
 </template>
 
 <script>
@@ -65,6 +61,10 @@ export default {
     };
   },
   mounted() {
+    this.container = document.getElementById("visualization");
+    this.reservas = new vis.DataSet(this.items);
+    if (!this.container) return;
+    this.renderTimeline();
   },
   methods: {
     resetTimeline() {
@@ -72,9 +72,6 @@ export default {
     },
 
     renderTimeline() {
-      if(this.timeline){
-        this.resetTimeline
-      }
       // Vis
       this.container = document.getElementById("visualization");
       this.options = {
@@ -137,22 +134,22 @@ export default {
     },
 
     moveLeft() {
-      return this.move(0.3);
+      return this.move(1);
     },
     moveRight() {
-      return this.move(-0.3);
+      return this.move(-1);
     },
   },
   watch: {
     items() {
       this.reservas = new vis.DataSet(this.items);
+      console.log(this.reservas, "Reservas");
       if (this.timeline) {
         this.resetTimeline();
       }
       this.renderTimeline();
     },
   },
-  created() {},
 };
 </script>
 
@@ -162,5 +159,16 @@ export default {
 
 h3 {
   text-align: start;
+}
+.botones {
+  padding: 1rem;
+}
+.botones button {
+  padding:0.5rem 1rem;
+  margin: 0 1rem;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  border:none;
 }
 </style>

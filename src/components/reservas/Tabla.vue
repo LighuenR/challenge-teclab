@@ -1,16 +1,20 @@
 !<template>
   <div class="card">
-    <table>
+    <table class="table">
       <tr>
-        <th>Nombre</th>
-        <th>Horario</th>
-        <th>Accion</th>
+        <th class="content">Nombre</th>
+        <th class="date-time">Horario</th>
+        <th class="accion">Accion</th>
       </tr>
       <tr v-for="(reserva, i) in items" :key="i" class="listaTabla">
-        <td class="content">{{ reserva.content }}</td>
-        <td class="dateTime claro">{{"de " + reserva.startTime + " a " + reserva.endTime }}</td>
+        <td class="content oscuro">{{ reserva.content }}</td>
+        <td class="date-time claro">{{"de " + reserva.startTime + " a " + reserva.endTime }}</td>
         
-        <td class="dateTime oscuro"><button><i class="far fa-trash-alt"></i></button></td>
+        <td class="accion"><button
+        @click="
+        $emit('eliminarReserva', reserva)
+        "
+         class="btn"><i class="fas fa-trash icon"></i></button></td>
       </tr>
     </table>
   </div>
@@ -35,37 +39,55 @@ export default {
 <style scoped>
 .card {
   margin: 2rem 0;
+  
 }
-td {
-  padding-top: 1rem;
-  border-bottom-style:ridge ;
 
+.table {
+  width: 100%;
+}
+.table tr {
+color: #8C8C8C;
+}
+
+
+td {
+  padding:1rem 0;
+  border-bottom-style:ridge ;
+ 
 
 }
 .content {
-  width: 60%;
+  
   text-align: start;
 }
-.dateTime {
-  width: 20%;
-  text-align: end;
+.date-time {
+ text-align: end;
+}
+.accion {
+  text-align: center;
 }
 .oscuro {
   color: #474747;
-  
+  font-weight: 700;
 }
 .claro {
   color: #868686;
 }
 
-button {
+.btn {
   background: white;
   border-style: none;
+  cursor: pointer;
 }
 
-tr {
-  text-align: start;
+.icon {
+  font-size:18px;
+  color: #CCCCCC;
 }
+
+
+
+
 
 
 

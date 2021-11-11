@@ -32,6 +32,7 @@ import "vue2-datepicker/index.css";
 
 import VueTimepicker from "vue2-timepicker";
 import "vue2-timepicker/dist/VueTimepicker.css";
+
 export default {
   components: { DatePicker, VueTimepicker },
   data() {

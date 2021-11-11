@@ -64,8 +64,8 @@ export default {
          {
           id: 6,
           content: "Ailen Rufino",
-          start: "2021-11-5 11:00",
-          end: "2021-11-5 11:45",
+          start: "2021-11-6 11:00",
+          end: "2021-11-6 11:45",
           startTime: "11:00",
           endTime: "11:45",
         },

@@ -30,16 +30,7 @@
         format="HH:mm"
       ></vue-timepicker>
       <button
-        @click="
-          agregarReserva({
-            content: content,
-            date: startDate.toISOString().split('T')[0],
-            start: startDate.toISOString().split('T')[0] + ' ' + startTime,
-            end: startDate.toISOString().split('T')[0] + ' ' + endTime,
-            startTime,
-            endTime,
-          })
-        "
+        @click="validacionDate()"
         class="mx-input"
       >
         Guardar
@@ -66,12 +57,36 @@ export default {
     };
   },
   methods: {
-    agregarReserva(reserva) {
-      this.$emit("agregarReserva", reserva);
-      this.$refs.reservas.reset();
-    },
-  },
-};
+    agregarReserva(reserva) 
+        {this.$emit("agregarReserva", reserva);
+        this.$refs.reservas.reset();},
+
+    validacionDate(){
+      let dateNow = new Date();
+      let date = new Date(this.startDate);
+      if(dateNow.getTime() > date.getTime()) {
+        console.log("Fecha en pasado")
+      }
+      else this.agregarReserva({
+            content: this.content,
+            date: this.startDate.toISOString().split('T')[0],
+            start: this.startDate.toISOString().split('T')[0] + ' ' + this.startTime,
+            end: this.startDate.toISOString().split('T')[0] + ' ' + this.endTime,
+            startTime:this.startTime,
+            endTime:this.endTime,
+          }) 
+        
+      }
+          
+      },
+      
+
+      
+    }
+    
+    
+  
+
 </script>
 
 <style  scoped>

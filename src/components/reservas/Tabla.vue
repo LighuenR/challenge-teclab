@@ -23,10 +23,6 @@
 <script>
 
 export default {
-  data() {
-    return {
-    }
-  },
   props: {
     items: {
       type: Array,

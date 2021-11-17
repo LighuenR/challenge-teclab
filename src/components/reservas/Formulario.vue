@@ -10,6 +10,7 @@
         v-model="content"
       />
       <date-picker
+        
         placeholder="Fecha"
         type="date"
         v-model="startDate"
@@ -36,6 +37,7 @@
         Guardar
       </button>
     </form>
+    <div v-if="showError" class="error"><p>La fecha ingresada no es valida</p></div>
   </div>
 </template>
 
@@ -54,6 +56,7 @@ export default {
       content: "",
       startTime: "",
       endTime: "",
+      showError: false,
     };
   },
   methods: {
@@ -66,6 +69,10 @@ export default {
       let date = new Date(this.startDate);
       if(dateNow.getTime() > date.getTime()) {
         console.log("Fecha en pasado")
+        this.showError = true;
+            setTimeout(() => {
+              this.showError = false;
+            }, 3000)
       }
       else this.agregarReserva({
             content: this.content,
@@ -114,5 +121,13 @@ form {
   margin-bottom: 10px;
   padding: 0;
   cursor: pointer;
+}
+.error {
+  position: absolute;
+  left: 50%;
+  top:30%;
+  transform: translateX(-50%);
+  width: 30%;
+  background: red;
 }
 </style>
